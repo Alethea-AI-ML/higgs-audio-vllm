@@ -264,7 +264,7 @@ class HiggsAudioServingAudio(OpenAIServing):
         })
 
         # SFT model uses system prompt instead of reference audio for TTS
-        if system_prompt is None:
+        if reference_text:
             messages.append({"role": "user", "content": reference_text})
             messages.append({
                 "role":
@@ -277,7 +277,7 @@ class HiggsAudioServingAudio(OpenAIServing):
                     }
                 }]
             })
-
+            logger.info("system_prompt: %s ", system_prompt)
         messages.append({"role": "user", "content": request.input})
 
         return messages
