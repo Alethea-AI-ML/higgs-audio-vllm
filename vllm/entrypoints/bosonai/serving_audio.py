@@ -277,7 +277,6 @@ class HiggsAudioServingAudio(OpenAIServing):
                     }
                 }]
             })
-
             logger.info("system_prompt: %s ", system_prompt)
         messages.append({"role": "user", "content": request.input})
 
